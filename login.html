@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="assets/styles/style.css">
+</head>
+<body id="loginBody">
+    
+    <header id="header">
+
+        <img class="logo" id="logo" src="assets/images/logo.jpeg" alt="logo">
+
+        <nav id="headLinks" class="headLinks">
+
+            <a href="index.html" class="headLink">HOME</a>
+            <a href="about.html" class="headLink">ABOUT</a>
+            <a href="main-products.html" class="headLink">PRODUCTS</a>
+            <a href="library.html" class="headLink">LIBRARY</a>
+
+        </nav>
+
+        <div></div>
+
+    </header>
+
+    <main class="mainLogin">
+        <form id="loginForm">
+            <h1>Log in</h1>
+            <p>Log in to continue</p>
+            <article>
+                <input id="logInNameInput" type="text" placeholder="Name...">
+                <img class="logIcon" src="assets/images/person-svgrepo-com.svg" alt="">
+            </article>
+
+            <article>
+                <input id="logInEmailInput" type="email" placeholder="Email...">
+                <img class="logIcon" src="assets/images/mail-alt-svgrepo-com.svg" alt="">
+            </article>
+
+            <article>
+                <input id="logInPasswordInput" type="password" placeholder="Password...">
+                <img class="logIcon" src="assets/images/eye-svgrepo-com.svg" alt="">
+                <img class="logIcon" src="assets/images/eye-off-svgrepo-com.svg" alt="">
+            </article>
+            <button type="submit">SUBMIT</button>
+            <p id="signUp" class="formText">Sign Up</p>
+        </form>
+
+        <form id="registerForm">
+            <h1>Register</h1>
+            <p>Register to continue</p>
+            <article>
+                <input id="signInNameInput" type="text" placeholder="Name...">
+                <img class="logIcon" src="assets/images/person-svgrepo-com.svg" alt="">
+            </article>
+            <article>
+                <input id="signInEmailInput" type="email" placeholder="Email...">
+                <img class="logIcon" src="assets/images/mail-alt-svgrepo-com.svg" alt="">
+            </article>
+            <article>
+                <input id="signInPasswordInput" type="password" placeholder="Password...">
+                <img class="logIcon" src="assets/images/eye-svgrepo-com.svg" alt="">
+                <img class="logIcon" src="assets/images/eye-off-svgrepo-com.svg" alt="">
+            </article>
+            <article>
+                <input id="signInCorrectPasswordInput" type="password" placeholder="Correct password...">
+                <img class="logIcon" src="assets/images/eye-svgrepo-com.svg" alt="">
+                <img class="logIcon" src="assets/images/eye-off-svgrepo-com.svg" alt="">
+            </article>
+            
+            <button type="submit">SUBMIT</button>
+            <p id="logIn" class="formText">Log In</p>
+        </form>
+
+        <div id="animatedPart" class="animatedPart">
+            <h1 id="welcomeText">Welcome Back!!</h1>
+        </div>
+    </main>
+
+    <script src="assets/scripts/form-script.js"></script>
+</body>
+</html>
