@@ -1,0 +1,14 @@
+{
+    "games": [
+        {
+            "id": 0,
+            "title": "NFS Most Wanted 2005",
+            "price": 5300,
+            "articule": "gspa0",
+            "string": "",
+            "minString": "",
+            "image": "https://i.playground.ru/e/sZ_AeEJ-4C_xgMI_GwzT4A.jpeg?1200x1200",
+            "category": "racing"
+        }
+    ]
+}

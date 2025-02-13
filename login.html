@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
     <link rel="stylesheet" href="assets/styles/style.css">
 </head>
+
 <body id="loginBody">
-    
+
     <header id="header">
 
         <img class="logo" id="logo" src="assets/images/logo.jpeg" alt="logo">
@@ -16,7 +18,7 @@
 
             <a href="index.html" class="headLink">HOME</a>
             <a href="about.html" class="headLink">ABOUT</a>
-            <a href="main-products.html" class="headLink">PRODUCTS</a>
+            <a href="products.html" class="headLink">PRODUCTS</a>
             <a href="library.html" class="headLink">LIBRARY</a>
 
         </nav>
@@ -40,10 +42,13 @@
             </article>
 
             <article>
-                <input id="logInPasswordInput" type="password" placeholder="Password...">
-                <img class="logIcon" src="assets/images/eye-svgrepo-com.svg" alt="">
-                <img class="logIcon" src="assets/images/eye-off-svgrepo-com.svg" alt="">
+                <input class="logPasswordInput" id="logInPasswordInput" type="password" placeholder="Password...">
+                <div class="eyesCont logEyeCont">
+                    <img class="logIcon logOnEye" src="assets/images/eye-svgrepo-com.svg" alt="">
+                    <img class="logIcon logOffEye" src="assets/images/eye-off-svgrepo-com.svg" alt="">
+                </div>
             </article>
+            <p class="errorMessage" id="logErrorMessage"></p>
             <button type="submit">SUBMIT</button>
             <p id="signUp" class="formText">Sign Up</p>
         </form>
@@ -55,21 +60,29 @@
                 <input id="signInNameInput" type="text" placeholder="Name...">
                 <img class="logIcon" src="assets/images/person-svgrepo-com.svg" alt="">
             </article>
+
             <article>
                 <input id="signInEmailInput" type="email" placeholder="Email...">
                 <img class="logIcon" src="assets/images/mail-alt-svgrepo-com.svg" alt="">
             </article>
+
             <article>
-                <input id="signInPasswordInput" type="password" placeholder="Password...">
-                <img class="logIcon" src="assets/images/eye-svgrepo-com.svg" alt="">
-                <img class="logIcon" src="assets/images/eye-off-svgrepo-com.svg" alt="">
+                <input class="logPasswordInput" id="signInPasswordInput" type="password" placeholder="Password...">
+                <div class="eyesCont logEyeCont">
+                    <img class="logIcon logOnEye" src="assets/images/eye-svgrepo-com.svg" alt="">
+                    <img class="logIcon logOffEye" src="assets/images/eye-off-svgrepo-com.svg" alt="">
+                </div>
             </article>
+
             <article>
-                <input id="signInCorrectPasswordInput" type="password" placeholder="Correct password...">
-                <img class="logIcon" src="assets/images/eye-svgrepo-com.svg" alt="">
-                <img class="logIcon" src="assets/images/eye-off-svgrepo-com.svg" alt="">
+                <input class="logPasswordInput" id="signInCorrectPasswordInput" type="password" placeholder="Correct password...">
+                <div class="eyesCont logEyeCont">
+                    <img class="logIcon logOnEye" src="assets/images/eye-svgrepo-com.svg" alt="">
+                    <img class="logIcon logOffEye" src="assets/images/eye-off-svgrepo-com.svg" alt="">
+                </div>
             </article>
-            
+
+            <p class="errorMessage" id="signErrorMessage"></p>
             <button type="submit">SUBMIT</button>
             <p id="logIn" class="formText">Log In</p>
         </form>
@@ -79,6 +92,7 @@
         </div>
     </main>
 
-    <script src="assets/scripts/form-script.js"></script>
+    <script src="scripts/form-script.js"></script>
 </body>
+
 </html>

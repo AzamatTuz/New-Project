@@ -42,6 +42,7 @@ header {
     width: 60px;
     border-radius: 100%;
     border: #6b9071 solid 2px;
+    animation: glowingBorder 3s infinite;
 }
 
 .headLink:hover {
@@ -107,6 +108,10 @@ header {
     width: 30px;
 }
 
+#profileBtns {
+    display: none;
+}
+
 /* ######## FORM PART ######## */
 
 #loginBody {
@@ -141,14 +146,8 @@ form button {
 }
 
 form button:hover {
-    color: #0f2a1d;
-    background: #6b9071;
-}
-
-form label {
-    color: #0f2a1d;
-    font-size: 18px;
-    font-weight: 600;
+    color: #00ff84;
+    border-color: #00ff84;
 }
 
 form h1 {
@@ -171,6 +170,12 @@ form input {
     padding: 7px;
     font-size: 16px;
     border-bottom: 2px solid #0f2a1d;
+    transition: .5s ease-in-out;
+
+    &:focus {
+        border-bottom-color: #00ff84;
+        background: none;
+    }
 }
 
 form input::placeholder {
@@ -187,7 +192,11 @@ form input::placeholder {
     border-radius: 10px;
     position: relative;
     overflow: hidden;
-    border: 2px solid #0f2a1d;
+    border: 3px solid #0f2a1d;
+    outline: 4px solid #6b9071;
+    box-shadow: 0 0 100px #72bc7f;
+    overflow: hidden;
+    animation: glowingBorder 3s infinite;
 }
 
 .mainLogin article {
@@ -200,12 +209,12 @@ form input::placeholder {
     right: 0;
     background: #0f2a1d;
     position: absolute;
-    transition: 1s all;
+    transition: .7s all;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #6b9071;
-    border-radius: 9px;
+    border-radius: 4px;
 }
 
 .animatedPart-after {
@@ -220,6 +229,22 @@ form input::placeholder {
     right: 14px;
 }
 
+.eyesCont {
+    cursor: pointer;
+}
+
+.logOffEye {
+    display: none;
+}
+
+.logOnEye-after {
+    display: none;
+}
+
+.logOffEye-after {
+    display: block;
+}
+
 .formText {
     text-align: center;
     cursor: pointer;
@@ -229,13 +254,35 @@ form input::placeholder {
     transition: .5s all;
     width: fit-content;
     margin: 5px 130px;
+    color: #0f2a1d;
+}
+
+.errorMessage {
+    text-align: start;
+    color: rgb(214, 0, 0);
+    display: none;
+    font-size: 16px
 }
 
 .formText:hover {
-    color: #aec3b0;
-    text-decoration: underline #aec3b0;
+    color: #00ff84;
+    text-decoration: underline #00ff84;
 }
 
 #registerForm {
     opacity: 0;
+}
+
+@keyframes glowingBorder {
+    0% {
+        border: 3px solid #0f2a1d;
+    }
+
+    50% {
+        border: 3px solid #00ff84;
+    }
+
+    100% {
+        border: 3px solid #0f2a1d
+    }
 }

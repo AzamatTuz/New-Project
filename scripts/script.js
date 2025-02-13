@@ -3,6 +3,10 @@
 const menuButton = document.getElementById('menuButton');
 const hotbar = document.getElementById('hotbar');
 const hotbarLinks = document.querySelectorAll('.hotbarLink');
+const changeBtns = document.getElementById('changeBtns');
+const profileBtns = document.getElementById('profileBtns');
+let isLoged = localStorage.getItem('isLoged');
+
 
 // // ########## EVENTS ##########
 
@@ -14,4 +18,9 @@ menuButton.addEventListener('click', () => {
     })
 });
 
+// // ########## FUNCTIONS ##########
 
+if (isLoged) {
+    changeBtns.style.display = 'none';
+    profileBtns.style.display = 'flex';
+};
