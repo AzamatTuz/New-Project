@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+#cardSection {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.gameCard {
+    width: 500px;
+    background: #fff;
+    box-shadow: 0 0 20px #6b9071;
+    color: #6b9071;
+    background: #0f2a1d;
+    border: 3px solid #6b9071;
+    outline: 4px solid #0f2a1d;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 4px;
+    animation: glowingBorder 3s infinite;
+}
+
+.gameCard img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.textCard {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+@keyframes glowingBorder {
+    0% {
+        border: 3px solid #6b9071;
+    }
+
+    50% {
+        border: 3px solid #00ff84;
+    }
+
+    100% {
+        border: 3px solid #6b9071;
+    }
+}
