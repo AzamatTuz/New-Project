@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
     <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="stylesheet" href="assets/styles/index-style.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.png">
 </head>
+
 <body id="body">
-    
+
     <header id="header">
 
         <img class="logo" id="logo" src="assets/images/logo.jpeg" alt="logo">
@@ -58,16 +62,31 @@
         </article>
         
         <article>
-            <button onclick="location.href = 'login.html'" class="hotbarButton"><svg class="hotbarIcon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z" stroke="#6b9071" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></button>
-            <a class="hotbarLink" href="login.html">Basket</a>
+            <button onclick="location.href = 'cart.html'" class="hotbarButton"><svg class="hotbarIcon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z" stroke="#6b9071" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></button>
+            <a class="hotbarLink" href="cart.html">Basket</a>
         </article>
 
     </aside>
 
-    <main>
-        <img id="randomProductImage" src="" alt="">
+    <main class="indexMain">
+        <h1>Добро пожаловать в Game-Shop</h1>
+        <article class="animatedImages">
+            <img class="randomProductImage" src="" alt="">
+            <img class="randomProductImage" src="" alt="">
+            <img class="randomProductImage" src="" alt="">
+            <img class="randomProductImage" src="" alt="">
+        </article>
+
+        <section class="blogs">
+            <article class="miniAbout">
+                <h4>Добро пожаловать в Game-Shop – ваш надежный онлайн-магазин для покупок всех видов игр и игровых аксессуаров! Мы предлагаем широкий ассортимент товаров для всех типов игроков, независимо от их предпочтений и уровня мастерства. Наши продукты включают самые последние релизы для всех платформ, включая PC, PlayStation, Xbox, Nintendo и многое другое.</h4>
+                <img src="assets/images/logo.jpeg" alt="">
+            </article>
+        </section>
     </main>
 
     <script src="scripts/script.js"></script>
+    <script src="scripts/index.js"></script>
 </body>
+
 </html>

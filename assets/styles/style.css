@@ -30,7 +30,26 @@ header {
     text-decoration: none;
     font-size: 17px;
     padding: 5px;
-    transition: .4s ease-in-out;
+    transition: .2s linear;
+    position: relative;
+    display: block;
+}
+
+.headLink:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: #6b9071;
+    border-radius: 50px;
+    transform: scaleX(0);
+    transition: transform 0.2s linear;
+}
+
+.headLink:hover:before {
+    transform: scaleX(1);
 }
 
 .headLinks {
@@ -62,6 +81,7 @@ header {
     gap: 50px;
     padding: 15px;
     transition: .3s all;
+    z-index: 50;
 }
 
 .hotbar-after {
@@ -70,6 +90,7 @@ header {
 }
 
 .hotbar article {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -110,6 +131,17 @@ header {
 
 #profileBtns {
     display: none;
+}
+
+#cartNum {
+    font-size: 12px;
+    position: absolute;
+    color: #0f2a1d;
+    background: #6b9071;
+    padding: 2px;
+    border-radius: 100%;
+    top: -5px;
+    left: 2px;
 }
 
 /* ######## FORM PART ######## */

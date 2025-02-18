@@ -18,6 +18,9 @@ main {
 }
 
 .gameCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 500px;
     background: #fff;
     box-shadow: 0 0 20px #6b9071;
@@ -41,6 +44,40 @@ main {
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+
+.productBtn {
+    background: none;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #6b9071;
+    border-radius: 10px;
+    transition: .4s all;
+
+    &:hover {
+        background: #0e251a;
+        opacity: 0.8;
+    }
+}
+
+.removeBtn {
+    color: red;
+}
+
+.prdctsBtns {
+    display: flex;
+    gap: 15px;
+    margin: 15px;
+}
+
+.productBtn img {
+    width: 30px;
 }
 
 @keyframes glowingBorder {
