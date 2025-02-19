@@ -1,0 +1,37 @@
+.mainProduct {
+    margin-top: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.productWrapper {
+    width: 1200px;
+    background: #0f2a1d;
+    color: #6b9071;
+    padding: 20px;
+    border: 3px solid #0f2a1d;
+    outline: 4px solid #0f2a1d;
+    animation: glowingBorder 3s infinite;
+}
+
+.productImage {
+    width: 100%;
+}
+
+.productBox {
+    padding: 20px;
+}
+
+.productName {
+    font-size: 50px;
+}
+
+.productPrice {
+    font-size: 30px;
+}
+
+.string {
+    font-size: 20px;
+}
