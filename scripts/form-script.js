@@ -21,7 +21,7 @@ const users = [
 
 // // ########## EVENTS ##########
 
-registerForm.addEventListener('submit', (e) => {
+registerForm.addEventListener('submit', (e) => { // // ########## Register to login form ##########
     e.preventDefault();
 
     let signUserName = document.getElementById('signInNameInput').value.trim();
@@ -40,7 +40,7 @@ registerForm.addEventListener('submit', (e) => {
 
 
     } else {
-
+        // // ########## Check passwords ##########
         if (signUserPassword != signUserSecPassword) {
 
             signErrorMessage.textContent = 'Пороли не совпадают!!!';
@@ -50,7 +50,7 @@ registerForm.addEventListener('submit', (e) => {
                 signErrorMessage.style.display = 'none';
             }, 5000);
 
-        } else if (signUserPassword.length < 8) {
+        } else if (signUserPassword.length < 8) { // // ########## Check password length ##########
 
             signErrorMessage.textContent = 'Пороль должен иметь более 8 символов!!!';
             signErrorMessage.style.display = 'block';
@@ -63,7 +63,7 @@ registerForm.addEventListener('submit', (e) => {
 
             let checkUser = JSON.parse(localStorage.getItem('users'));
 
-            if (checkUser) {
+            if (checkUser) { // // ########## Check user ##########
                 checkUser.forEach(check => {
 
                     if (check.email == signUserEmail) {
@@ -82,6 +82,9 @@ registerForm.addEventListener('submit', (e) => {
                         isLoged = true;
                         localStorage.setItem('isLoged', isLoged);
 
+                        localStorage.setItem('userName', signUserName);
+                        localStorage.setItem('userEmail', signUserEmail);
+
                         location.href = 'index.html';
                     };
 
@@ -94,6 +97,9 @@ registerForm.addEventListener('submit', (e) => {
                 isLoged = true;
                 localStorage.setItem('isLoged', isLoged);
 
+                localStorage.setItem('userName', signUserName);
+                localStorage.setItem('userEmail', signUserEmail);
+
                 location.href = 'index.html'
             };
 
@@ -103,7 +109,7 @@ registerForm.addEventListener('submit', (e) => {
 
 });
 
-loginForm.addEventListener('submit', (e) => {
+loginForm.addEventListener('submit', (e) => { // // ########## Submit to login form ##########
     e.preventDefault();
 
     let logUserName = document.getElementById('logInNameInput').value.trim();
@@ -121,11 +127,14 @@ loginForm.addEventListener('submit', (e) => {
     } else {
         let checkUser = JSON.parse(localStorage.getItem('users'));
 
-        checkUser.forEach((user) => {
+        checkUser.forEach((user) => { // // ########## Find the user ##########
 
             if (user.email == logUserEmail && user.name == logUserName && user.password == logUserPassword) {
                 isLoged = true;
                 localStorage.setItem('isLoged', isLoged);
+
+                localStorage.setItem('userName', logUserName);
+                localStorage.setItem('userEmail', logUserEmail);
 
                 location.href = 'index.html';
             } else {
@@ -166,7 +175,7 @@ logEyeCont.forEach((eyes) => {
         logOnEye.forEach((eye) => {
             eye.classList.toggle('logOnEye-after');
         });
-        
+
         logOffEye.forEach((eye) => {
             eye.classList.toggle("logOffEye-after");
         });
@@ -188,3 +197,4 @@ function showPassword() {
         })
     }
 }
+

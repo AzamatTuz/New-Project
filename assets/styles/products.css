@@ -80,7 +80,7 @@ main {
 }
 
 .productsSearch {
-    margin: 50px;
+    margin-bottom: 50px;
     height: 30px;
     background: #0f2a1d;
     color: #6b9071;
@@ -117,6 +117,8 @@ main {
     width: 80%;
     overflow-x: scroll;
     background: #6b9071;
+    animation: glowingBorder 3s infinite;
+    outline: 3px solid #6b9071;
 }
 
 
@@ -134,15 +136,16 @@ main {
 }
 
 .categoryProductBtn {
-    background: #ccdbce;
-    border: none;
-    outline: none;
+    background: #0f2a1d;
     padding: 5px 15px;
     border-radius: 15px;
-    color: #0f2a1d;
+    color: #6b9071;
     cursor: pointer;
     font-size: 18px;
     font-weight: 600;
+    border: 3px solid #0f2a1d;
+    outline: 4px solid #0f2a1d;
+    animation: glowingBorder 3s infinite;
 }
 
 .categoryCard {
@@ -150,7 +153,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     background: #0f2a1d;
     color: #6b9071;
 }

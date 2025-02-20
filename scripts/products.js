@@ -5,7 +5,6 @@ let productPage = [];
 let gamesArr = [];
 let likedGames = [];
 let cartGames = [];
-let like = 0;
 let i = 0;
 
 async function getData() {
@@ -102,6 +101,7 @@ function displayGames(gamesArr) {
     });
 
     const productCartBtns = document.querySelectorAll('.productCartBtn');
+    const productLikeBtns = document.querySelectorAll('.productLikeBtn');
     const readMoreBtn = document.querySelectorAll('.readMoreBtn');
     const gameCards = document.querySelectorAll('.gameCard');
 
@@ -116,7 +116,11 @@ function displayGames(gamesArr) {
         });
     })
 
-
+    productLikeBtns.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+            addToFavourites(gamesArr, e.target.dataset.value);
+        })
+    });
 
     productCartBtns.forEach((btn) => {
         btn.addEventListener('click', (e) => {
@@ -164,4 +168,22 @@ function addToCart(gamesArr, gameArt) {
     });
 }
 
-// var cash = Number(money.match(/\d+/g));
+function addToFavourites(gamesArr, gameArt) {
+
+    let likeSet = JSON.parse(localStorage.getItem('cartGames'));
+
+    gamesArr.forEach((game) => {
+        if (game.articule == gameArt) {
+
+            if (likeSet) {
+                likeSet.push(game);
+                localStorage.setItem('likedGames', JSON.stringify(likeSet));
+            } else {
+
+                likedGames.push(game);
+                localStorage.setItem('likedGames', JSON.stringify(likedGames));
+
+            }
+        }
+    });
+}

@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 .mainProduct {
-    margin-top: 130px;
+    margin-top: 100px;
+    margin-bottom: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,6 +17,19 @@
     border: 3px solid #0f2a1d;
     outline: 4px solid #0f2a1d;
     animation: glowingBorder 3s infinite;
+}
+
+.defaultProductBox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.defaultProductBox div {
+    display: flex;
+    width: 700px;
+    margin: 20px;
+    flex-direction: column;
 }
 
 .productImage {
@@ -34,4 +50,32 @@
 
 .string {
     font-size: 20px;
+}
+
+#backToPage {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    right: 20px;
+    top: 100px;
+    background: #0f2a1d;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    font-family: "Nunito", serif;
+    gap: 10px;
+    border: 3px solid #0f2a1d;
+    outline: 4px solid #0f2a1d;
+    animation: glowingBorder 3s infinite;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: .3s all linear;
+}
+
+#backToPage:hover {
+    box-shadow: 0 0 25px #00ff84;
+}
+
+#backToPage img {
+    rotate: -90deg;
 }

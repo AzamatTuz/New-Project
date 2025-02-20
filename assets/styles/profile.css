@@ -1,0 +1,42 @@
+.profileMain {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profileBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: #0f2a1d;
+    padding: 20px;
+    color: #6b9071;
+    gap: 55px;
+    border-radius: 15px;
+    animation: glowingBorder 3s infinite;
+    outline: 3px solid #0f2a1d;
+}
+
+.avatar {
+    width: 400px;
+    border-radius: 100%;
+    outline: 5px dotted #6b9071;
+}
+
+#logOutProfile {
+    padding: 10px 25px;
+    font-size: 17px;
+    border: none;
+    outline: none;
+    color: white;
+    background: #b70000;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s all ease-out;
+}
+
+#logOutProfile:hover {
+    background: #950000;
+}

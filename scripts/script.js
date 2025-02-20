@@ -7,7 +7,6 @@ const changeBtns = document.getElementById('changeBtns');
 const profileBtns = document.getElementById('profileBtns');
 let isLoged = localStorage.getItem('isLoged');
 
-
 // // ########## EVENTS ##########
 
 menuButton.addEventListener('click', () => {
@@ -20,7 +19,10 @@ menuButton.addEventListener('click', () => {
 
 // // ########## FUNCTIONS ##########
 
-if (isLoged) {
+if (isLoged == 'true') {
     changeBtns.style.display = 'none';
     profileBtns.style.display = 'flex';
-};
+} else {
+    changeBtns.style.display = 'flex';
+    profileBtns.style.display = 'none';
+}
