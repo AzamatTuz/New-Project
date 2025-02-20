@@ -17,6 +17,14 @@ menuButton.addEventListener('click', () => {
     })
 });
 
+window.addEventListener('scroll', () => {
+    if (scrollY > 50) {
+        arrowUp.style.left = '95%'
+    } else {
+        arrowUp.style.left = '120%'
+    }
+})
+
 // // ########## FUNCTIONS ##########
 
 if (isLoged == 'true') {

@@ -35,7 +35,7 @@ function displayCard() {
 
         cardSection.appendChild(card);
 
-        buttons.addEventListener('click', () => {
+        buttons.querySelector('.removeBtn').addEventListener('click', () => {
             removeCard(buttons.id);
             cardSection.removeChild(card);
             

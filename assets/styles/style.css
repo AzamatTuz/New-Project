@@ -12,6 +12,10 @@ body {
     
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* ######## HEADER PART ######## */
 
 header {
@@ -319,4 +323,24 @@ form input::placeholder {
     100% {
         border: 3px solid #0f2a1d
     }
+}
+
+#arrowUp {
+    background: #0f2a1d;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 90%;
+    left: 120%;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.5s all;
+    z-index: 50;
+}
+
+#arrowUp:hover {
+    background: #6b9071;
+    box-shadow: 0 0 10px #6b9071;
 }
