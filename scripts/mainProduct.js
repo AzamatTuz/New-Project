@@ -10,7 +10,12 @@ let buyButton = document.querySelector('#buyButton');
 let cartGame = JSON.parse(localStorage.getItem('cartGames'));
 let cartNumber = document.getElementById('cartNumber');
 let backToPage = document.getElementById('backToPage');
-cartNumber.textContent = cartGame.length
+
+if (cartGame) {
+    cartNumber.textContent = cartGame.length
+} else {
+    cartNumber.textContent = 0
+}
 
 siteTitle.textContent = `Game / ${gamePage[arrOfNum].title}`
 productImage.src = gamePage[arrOfNum].image;
