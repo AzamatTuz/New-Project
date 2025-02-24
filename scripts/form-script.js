@@ -118,7 +118,7 @@ function checkUsers(signUserEmail, signUserName, signUserPassword, signErrorMess
 
         console.log(JSON.parse(localStorage.getItem('users')));
 
-        // location.href = 'index.html';
+        location.href = 'index.html';
 
         return;
     }
