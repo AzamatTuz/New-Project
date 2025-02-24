@@ -11,7 +11,7 @@ let gamesArr = [];
 let likedGames = [];
 let cartGames = [];
 let i = 0;
-
+// Change
 if (cartGame) {
     cartNumber.textContent = cartGame.length
 } else {
