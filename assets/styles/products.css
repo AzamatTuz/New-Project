@@ -31,6 +31,8 @@ main {
     overflow: hidden;
     padding: 4px;
     animation: glowingBorder 3s infinite;
+    scroll-snap-align: end;
+    scroll-snap-stop: always;
 }
 
 .gameCard img {
@@ -115,7 +117,8 @@ main {
     display: flex;
     gap: 20px;
     width: 80%;
-    overflow-x: scroll;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
     background: #6b9071;
     animation: glowingBorder 3s infinite;
     outline: 3px solid #6b9071;
@@ -156,6 +159,8 @@ main {
     justify-content: space-between;
     background: #0f2a1d;
     color: #6b9071;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
 }
 
 .categoryCard img {
@@ -167,6 +172,7 @@ main {
     height: 155vh;
     overflow-y: scroll;
     padding: 10px;
+    scroll-snap-type: y mandatory;
 }
 
 .scrollPart::-webkit-scrollbar {

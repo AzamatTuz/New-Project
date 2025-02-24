@@ -1,5 +1,10 @@
 let gamesArr = JSON.parse(localStorage.getItem('likedGames'));
-const cartNoText = document.getElementById('cartNoText');
+let cartNoText = document.getElementById('cartNoText');
+let cartGame = JSON.parse(localStorage.getItem('cartGames'));
+let cartNumber = document.getElementById('cartNumber');
+let backToPage = 'liked.html'
+let productPage = [];
+cartNumber.textContent = cartGame.length
 
 let i = 0;
 
@@ -14,9 +19,14 @@ function displayCard() {
         const stringText = document.createElement('p');
         let buttons = document.createElement('div');
 
-        buttons.innerHTML = `<button class="removeBtn productBtn">X Remove</button>`;
+        buttons.innerHTML = `
+        <button class="readMoreBtn productBtn">Read More</button>
+        <button class="removeBtn productBtn">X Remove</button>
+        `;
         buttons.id = i
         i++;
+
+        buttons.style.justifyContent = 'space-around';
 
         buttons.classList.add('prdctsBtns');
         textCard.classList.add('textCard');
@@ -35,11 +45,21 @@ function displayCard() {
 
         cardSection.appendChild(card);
 
-        buttons.addEventListener('click', () => {
-            removeCard(buttons.id);
+        buttons.querySelector('.removeBtn').addEventListener('click', () => {
+            gamesArr.splice(gamesArr.indexOf(game), 1);
+
+            localStorage.setItem('likedGames', JSON.stringify(gamesArr));
+            console.log(gamesArr);
             cardSection.removeChild(card);
-            
+
             noText();
+        });
+
+        buttons.querySelector('.readMoreBtn').addEventListener('click', () => {
+            productPage.push(game);
+            localStorage.setItem('gamePage', JSON.stringify(productPage));
+            localStorage.setItem('backToPage', backToPage);
+            location.href = 'main-products.html';
         })
 
     });
@@ -47,25 +67,6 @@ function displayCard() {
 };
 
 displayCard();
-
-// function addToProductPage(gamesArr, gameArt) {
-//     gamesArr.forEach((game) => {
-//         if (game.articule == gameArt) {
-//             productPage.push(game);
-//             console.log(game);
-//             location.href = 'main-products.html'
-//             localStorage.setItem('gamePage', JSON.stringify(productPage));
-
-//         }
-//     })
-// }
-
-function removeCard(id) {
-    gamesArr.splice(id, 1);
-    
-    localStorage.setItem('likedGames', JSON.stringify(gamesArr));
-    console.log(gamesArr);
-}
 
 function noText() {
     if (gamesArr.length <= 0) {

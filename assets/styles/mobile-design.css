@@ -1,0 +1,236 @@
+@media (max-width: 428px) {
+
+    .headLinks {
+        gap: 5px;
+    }
+
+    .headLink {
+        font-size: 15px;
+    }
+
+    .logo {
+        width: 50px;
+    }
+
+    .hotbar {
+        top: 70px;
+        height: 100%;
+        width: 20px;
+    }
+
+    .hotbarLink {
+        font-size: 14px
+    }
+
+    .hotbar-after {
+        width: 140px;
+    }
+
+    .hotbarButton {
+        width: 20px;
+    }
+
+    .indexMain {
+        margin-left: 50px;
+    }
+
+    .indexMain h1 {
+        font-size: 15px;
+        width: 75%;
+    }
+
+    .videoPart {
+        width: fit-content;
+    }
+
+    .blogs {
+        grid-template-columns: 1fr;
+    }
+
+    .joke {
+        width: 310px;
+        height: 310px;
+        right: 8%;
+        top: 115.5%;
+    }
+
+    #arrowUp {
+        width: 15px;
+        height: 15px;
+    }
+
+    .videoPart video {
+        width: 250px;
+
+    }
+
+    .aboutMain h1 {
+        font-size: 25px;
+    }
+
+    .textsContain {
+        padding: 15px;
+    }
+
+    .textsContain p {
+        font-size: 14px;
+        line-height: 30px;
+    }
+
+    .textsContain ul {
+        padding: 0 10px;
+    }
+
+    .textsContain li {
+        font-size: 14px;
+        line-height: 30px;
+    }
+
+    .title {
+        margin: 10px;
+        font-size: 20px;
+    }
+
+    .scrollPart::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scrollPart {
+        margin-left: -20px;
+    }
+
+    .productsSearch {
+        width: 60%;
+    }
+
+    #cardSection {
+        gap: 30px;
+    }
+    
+    .gameCard {
+        width: 300px;
+        padding: 4px;
+    }
+    
+    .gameCard img {
+        width: 100%;
+    }
+
+    .productBtn img {
+        width: 20px;
+    }
+
+    .productBtn {
+        font-size: 15px;
+    }
+
+    .prdctsBtns {
+        gap: 0;
+        margin: 15px;
+    }
+    
+    .textCard {
+        padding: 25px;
+        gap: 15px;
+    }
+
+    .categoryText {
+        padding: 5px 90px;
+    }
+
+    #cartNoText {
+        font-size: 25px;
+        margin-top: 220px;
+        text-align: center;
+    }
+
+    .totalPriceOfProducts div h1 {
+        font-size: 18px;
+    }
+
+    #buyButton {
+        font-size: 10px;
+        padding: 10px 20px;
+    }
+
+    .mainLogin {
+        width: 350px;
+    }
+
+    #registerForm {
+        display: none;
+    }
+
+    .animatedPart {
+        z-index: 30;
+        width: 100%;
+        right: -100%;
+    }
+
+    .animatedPart-after {
+        right: 0;
+    }
+
+    .mainLogin form {
+        width: 400px;
+    }
+
+    .productImage {
+        width: 1000px;
+    }
+
+    .mainProduct {
+        margin-left: 50px;
+    }
+
+    .productWrapper img {
+        width: 250px;
+    }
+
+    .defaultProductBox {
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .defaultProductBox div {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+
+    .productName {
+        text-align: center;
+    }
+
+    .string {
+        font-size: 15px;
+    }
+
+    .productBox {
+        padding: 5px;
+    }
+
+    footer {
+        gap: 15px;
+        justify-content: center;
+    }
+
+    footer h1 {
+        font-size: 12px;
+        margin-left: 25px;
+    }
+
+    .footImg {
+        width: 50px;
+    }
+
+    .footNav {
+        gap: 0;
+    }
+
+    .ionicon {
+        height: 20px;
+        width: 20px;
+        margin: 3px;
+    }
+}

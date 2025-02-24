@@ -151,21 +151,45 @@ loginForm.addEventListener('submit', (e) => { // // ########## Submit to login f
 })
 
 signUp.addEventListener('click', () => {
-    animatedPart.classList.toggle('animatedPart-after');
-    setTimeout(() => {
+    if (window.innerWidth <= 428) {
         loginForm.style.opacity = 0;
         registerForm.style.opacity = 1;
         welcomeText.textContent = 'Welcome To!!'
-    }, 500);
+        animatedPart.classList.toggle('animatedPart-after');
+        setTimeout(() => {
+            loginForm.style.display = 'none';
+            registerForm.style.display = 'flex';
+            animatedPart.classList.toggle('animatedPart-after');
+        }, 1500);
+    } else {
+        animatedPart.classList.toggle('animatedPart-after');
+        setTimeout(() => {
+            loginForm.style.opacity = 0;
+            registerForm.style.opacity = 1;
+            welcomeText.textContent = 'Welcome To!!'
+        }, 500);
+    }
 });
 
 logIn.addEventListener('click', () => {
-    animatedPart.classList.toggle('animatedPart-after');
-    setTimeout(() => {
+    if (window.innerWidth <= 428) {
         loginForm.style.opacity = 1;
         registerForm.style.opacity = 0;
         welcomeText.textContent = 'Welcome Back!!'
-    }, 500);
+        animatedPart.classList.toggle('animatedPart-after');
+        setTimeout(() => {
+            loginForm.style.display = 'flex';
+            registerForm.style.display = 'none';
+            animatedPart.classList.toggle('animatedPart-after');
+        }, 1500);
+    } else {
+        animatedPart.classList.toggle('animatedPart-after');
+        setTimeout(() => {
+            loginForm.style.opacity = 1;
+            registerForm.style.opacity = 0;
+            welcomeText.textContent = 'Welcome Back!!'
+        }, 500);
+    }
 });
 
 // // ########## FUNCTIONS ##########

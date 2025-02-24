@@ -1,0 +1,120 @@
+@media (max-width: 768px) {
+
+    .indexMain {
+        margin-left: 70px;
+    }
+
+    .indexMain h1 {
+        font-size: 30px;
+    }
+
+    .videoPart {
+        width: fit-content;
+    }
+
+    .cards {
+        width: 150px;
+        height: 150px;
+    }
+
+    .cards img {
+        width: 40px;
+    }
+
+    .blogLink {
+        font-size: 18px;
+        padding: 5px 15px;
+    }
+
+    .joke {
+        width: 400px;
+        height: 400px;
+        right: 19.7%;
+        top: 96%;
+    }
+
+    .videoPart video {
+        width: 550px;
+
+    }
+
+    #cardSection {
+        margin-left: 30px;
+        grid-template-columns: 1fr;
+    }
+
+    .productsMain {
+        margin-left: 50px;
+    }
+
+    .mainLogin {
+        margin-top: 90px;
+    }
+
+    .mainLogin form p {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+    }
+
+    .mainLogin form {
+        width: 290px;
+        height: 490px;
+        position: relative;
+    }
+
+    .mainLogin form input {
+        width: 95%;
+    }
+
+    .aboutMain {
+        margin-left: 50px;
+    }
+
+    .cartMain {
+        margin-left: 50px;
+    }
+
+    .totalPriceOfProducts {
+        margin-left: 30px;
+        width: 64%;
+    }
+
+    #cartNoText {
+        font-size: 30px;
+    }
+
+    .mainProduct {
+        margin-left: 70px;
+    }
+
+    .productWrapper {
+        width: 75%;
+    }
+
+    .productWrapper h1 {
+        font-size: 30px;
+    }
+
+    .productWrapper img {
+        width: 50%;
+    }
+
+    .profileMain {
+        margin-left: 50px;
+    }
+
+    footer h1 {
+        font-size: 20px;
+    }
+
+    .footNav {
+        gap: 10px;
+    }
+
+    .ionicon {
+        height: 30px;
+        width: 30px;
+        margin: 5px;
+    }
+}

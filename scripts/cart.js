@@ -1,7 +1,15 @@
 let gamesArr = JSON.parse(localStorage.getItem('cartGames'));
 const cartNoText = document.getElementById('cartNoText');
+let totalPrice = document.getElementById('totalPrice');
+let buyButton = document.getElementById('buyButton');
+let cartNumber = document.getElementById('cartNumber');
+let cartGame = JSON.parse(localStorage.getItem('cartGames'));
+let cart = cartGame;
+console.log(cart);
 
-let i = 0;
+
+cartNumber.textContent = cartGame.length
+let total = 0;
 
 function displayCard() {
 
@@ -15,8 +23,6 @@ function displayCard() {
         let buttons = document.createElement('div');
 
         buttons.innerHTML = `<button class="removeBtn productBtn">X Remove</button>`;
-        buttons.id = i
-        i++;
 
         buttons.classList.add('prdctsBtns');
         textCard.classList.add('textCard');
@@ -36,31 +42,52 @@ function displayCard() {
         cardSection.appendChild(card);
 
         buttons.querySelector('.removeBtn').addEventListener('click', () => {
-            removeCard(buttons.id);
+            gamesArr.splice(gamesArr.indexOf(game), 1);
+            total -= game.price;
+
+            localStorage.setItem('cartGames', JSON.stringify(gamesArr));
+            console.log(gamesArr);
             cardSection.removeChild(card);
-            
+
+            cartNumber.textContent = gamesArr.length
             noText();
+            calcTotalPrice();
         })
 
     });
 
 };
 
-displayCard()
-
-function removeCard(id) {
-    gamesArr.splice(id, 1);
-    
-    localStorage.setItem('cartGames', JSON.stringify(gamesArr));
-    console.log(gamesArr);
-}
+displayCard();
 
 function noText() {
-    if (gamesArr.length <= 0) {
-        cartNoText.style.display = 'block'
-    } else {
-        cartNoText.style.display = 'none'
+    if (gamesArr) {
+        if (gamesArr.length <= 0) {
+            cartNoText.style.display = 'block'
+        } else {
+            cartNoText.style.display = 'none'
+        }
     }
 }
 
+if (gamesArr) {
+    gamesArr.forEach((game) => {
+        total += game.price
+    })
+}
+
+function calcTotalPrice() {
+
+    totalPrice.textContent = total + ' KZT'
+}
+
+buyButton.addEventListener('click', () => {
+    if (cart.length > 0) {
+        localStorage.setItem('orderName', `${gamesArr.length} игр`);
+        localStorage.setItem('orderPrice', total + ' KZT');
+        window.open('takeOrder.html')
+    }
+});
+
+calcTotalPrice();
 noText();

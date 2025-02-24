@@ -1,6 +1,11 @@
 const cardSection = document.getElementById('cardSection');
 const productsSearch = document.querySelector('.productsSearch');
 const categorySection = document.querySelectorAll('.categorySection');
+const cartNumber = document.getElementById('cartNumber');
+let cartGame = JSON.parse(localStorage.getItem('cartGames'));
+let backToPage = 'products.html'
+cartNumber.textContent = cartGame.length
+let cart = 0;
 let productPage = [];
 let gamesArr = [];
 let likedGames = [];
@@ -36,9 +41,9 @@ function displayGames(gamesArr) {
         const buttons = document.createElement('article');
 
         buttons.innerHTML = `
-            <button data-value="gspa${i}" class="productCartBtn productBtn"><img src="assets/images/cart.svg" alt=""> Cart</button>
-            <button data-value="gspa${i}" class="productLikeBtn productBtn"><img src="assets/images/like.svg" alt=""> Like</button>
-            <button data-value="gspa${i}" class="readMoreBtn productBtn">Read More</button>
+            <button class="productCartBtn productBtn"><img src="assets/images/cart.svg" alt=""> Cart</button>
+            <button class="productLikeBtn productBtn"><img src="assets/images/like.svg" alt=""> Like</button>
+            <button class="readMoreBtn productBtn">Read More</button>
         `;
 
 
@@ -57,20 +62,66 @@ function displayGames(gamesArr) {
 
         cardSection.appendChild(card);
 
-        
+        // ############# ADD TO CART FUNCTION #############
+
+        buttons.querySelector('.productCartBtn').addEventListener('click', () => {
+            let gameD = { title: game.title, price: game.price, image: game.image };
+            let checkGame = JSON.parse(localStorage.getItem('cartGames'));
+            console.log(gameD);
+
+            if (checkGame) {
+                checkGame.push(gameD);
+                localStorage.setItem('cartGames', JSON.stringify(checkGame));
+                console.log(!checkGame.includes(gameD));
+                cartNumber.textContent = checkGame.length;
+            } else {
+                cartGames.push(gameD)
+                localStorage.setItem('cartGames', JSON.stringify(cartGames));
+            }
+            
+        });
+
+        // ############# ADD TO FAVOURITES FUNCTION #############
+
+        buttons.querySelector('.productLikeBtn').addEventListener('click', () => {
+            let likeSet = JSON.parse(localStorage.getItem('likedGames'));
+
+            if (likeSet) {
+                likeSet.push(game);
+                localStorage.setItem('likedGames', JSON.stringify(likeSet));
+                console.log(!likeSet.includes(game));
+
+            } else {
+                likedGames.push(game)
+                localStorage.setItem('likedGames', JSON.stringify(likedGames));
+            }
+
+        });
+
+        // ############# GO TO THE GAME PAGE #############
+
+        buttons.querySelector('.readMoreBtn').addEventListener('click', () => {
+            productPage.push(game);
+            console.log(game);
+            location.href = 'main-products.html'
+            localStorage.setItem('gamePage', JSON.stringify(productPage));
+            localStorage.setItem('backToPage', backToPage);
+        });
+
+        // ############# SORT OF CATEGORY #############
 
         const categoryCard = document.createElement('div');
         const categoryImage = document.createElement('img');
         const categoryGameTitle = document.createElement('h1');
         const categoryTextCard = document.createElement('div');
         const categoryButtons = document.createElement('article');
-
-        categoryButtons.innerHTML = `<button data-value="gspa${i}" class="readMoreBtn categoryProductBtn">Read More</button>`;
+                            
+        categoryButtons.innerHTML = `<button class="readMoreBtn categoryProductBtn">Read More</button>`;
 
         categoryButtons.classList.add('prdctsBtns');
         categoryTextCard.classList.add('textCard');
         categoryCard.classList.add('categoryCard');
-  
+
         categoryGameTitle.textContent = game.title;
         categoryImage.src = game.image;
 
@@ -91,18 +142,22 @@ function displayGames(gamesArr) {
 
             categorySection[2].appendChild(categoryCard);
 
-        }  else if (game.category == "action") {
+        } else if (game.category == "action") {
 
             categorySection[3].appendChild(categoryCard);
         }
 
+        categoryButtons.querySelector('.readMoreBtn').addEventListener('click', () => {
+            productPage.push(game);
+            console.log(game);
+            location.href = 'main-products.html'
+            localStorage.setItem('gamePage', JSON.stringify(productPage));
+            localStorage.setItem('backToPage', backToPage);
+        });
 
         i++
     });
 
-    const productCartBtns = document.querySelectorAll('.productCartBtn');
-    const productLikeBtns = document.querySelectorAll('.productLikeBtn');
-    const readMoreBtn = document.querySelectorAll('.readMoreBtn');
     const gameCards = document.querySelectorAll('.gameCard');
 
     productsSearch.addEventListener('input', () => {
@@ -116,74 +171,4 @@ function displayGames(gamesArr) {
         });
     })
 
-    productLikeBtns.forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-            addToFavourites(gamesArr, e.target.dataset.value);
-        })
-    });
-
-    productCartBtns.forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-            addToCart(gamesArr, e.target.dataset.value);
-        })
-    });
-
-    readMoreBtn.forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-            addToProductPage(gamesArr, e.target.dataset.value);
-        })
-    })
-
 };
-
-function addToProductPage(gamesArr, gameArt) {
-    gamesArr.forEach((game) => {
-        if (game.articule == gameArt) {
-            productPage.push(game);
-            console.log(game);
-            location.href = 'main-products.html'
-            localStorage.setItem('gamePage', JSON.stringify(productPage));
-
-        }
-    })
-}
-
-function addToCart(gamesArr, gameArt) {
-
-    let cartSet = JSON.parse(localStorage.getItem('cartGames'));
-
-    gamesArr.forEach((game) => {
-        if (game.articule == gameArt) {
-
-            if (cartSet) {
-                cartSet.push(game);
-                localStorage.setItem('cartGames', JSON.stringify(cartSet));
-            } else {
-
-                cartGames.push(game);
-                localStorage.setItem('cartGames', JSON.stringify(cartGames));
-
-            }
-        }
-    });
-}
-
-function addToFavourites(gamesArr, gameArt) {
-
-    let likeSet = JSON.parse(localStorage.getItem('cartGames'));
-
-    gamesArr.forEach((game) => {
-        if (game.articule == gameArt) {
-
-            if (likeSet) {
-                likeSet.push(game);
-                localStorage.setItem('likedGames', JSON.stringify(likeSet));
-            } else {
-
-                likedGames.push(game);
-                localStorage.setItem('likedGames', JSON.stringify(likedGames));
-
-            }
-        }
-    });
-}

@@ -9,7 +9,6 @@ body {
     font-family: "Nunito", serif;
     overflow-x: hidden;
     background: #ccdbce;
-    
 }
 
 html {
@@ -162,7 +161,7 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 form {
@@ -343,9 +342,68 @@ form input::placeholder {
     border-radius: 8px;
     transition: 0.5s all;
     z-index: 50;
+    border: 1px solid #6b9071;
 }
 
 #arrowUp:hover {
     background: #6b9071;
     box-shadow: 0 0 10px #6b9071;
+}
+
+.cartNumber {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background: #6b9071;
+    color: #0f2a1d;
+    min-width: 15px;
+    min-height: 15px;
+    border-radius: 100%;
+    top: -8px;
+}
+
+.cartNumber p {
+    font-size: 10px;
+    font-weight: 900;
+}
+
+/* ######## FOOTER PART ######## */
+
+footer {
+    position: relative;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: #0f2a1d;
+    padding: 10px;
+}
+
+footer h1 {
+    color: #6b9071;
+}
+
+.footNav {
+    display: flex;
+    gap: 30px;
+}
+
+.footImg {
+    width: 120px;
+    border-radius: 20px;
+}
+
+.ionicon {
+    fill: #6b9071;
+    height: 40px;
+    width: 40px;
+    margin: 10px;
+    cursor: pointer;
+    transition: 0.4s all;
+}
+
+.ionicon:hover {
+    fill: #00ff84;
+    transform: scale(1.2);
 }

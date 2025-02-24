@@ -3,3 +3,47 @@
     font-size: 60px;
     color: #0f2a1d;
 }
+
+.totalPriceOfProducts {
+    margin-top: 20px;
+    background: #0f2a1d;
+    width: 66%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    color: #6b9071;
+    border: 3px solid #0f2a1d;
+    outline: 4px solid #0f2a1d;
+    animation: glowingBorder 1s infinite ease-in-out;
+}
+
+.totalPriceOfProducts div {
+    display: flex;
+    gap: 10px;
+}
+
+#buyButton {
+    width: fit-content;
+    padding: 10px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    background: transparent;
+    border: 2px solid #6b9071;
+    cursor: pointer;
+    color: #6b9071;
+    border-radius: 5px;
+    transition: 0.1s all;
+    text-decoration: none;
+
+    &:hover {
+        background: #6b9071;
+        color: #0f2a1d;
+        border-color: #0f2a1d;
+    }
+}
+
+footer {
+    margin-top: 229px;
+}

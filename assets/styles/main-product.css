@@ -33,7 +33,7 @@
 }
 
 .productImage {
-    width: 100%;
+    width: 70%;
 }
 
 .productBox {
@@ -50,6 +50,27 @@
 
 .string {
     font-size: 20px;
+}
+
+#buyButton {
+    margin-top: 30px;
+    width: fit-content;
+    padding: 10px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    background: transparent;
+    border: 2px solid #6b9071;
+    cursor: pointer;
+    color: #6b9071;
+    border-radius: 5px;
+    transition: 0.1s all;
+    text-decoration: none;
+
+    &:hover {
+        background: #6b9071;
+        color: #0f2a1d;
+        border-color: #0f2a1d;
+    }
 }
 
 #backToPage {

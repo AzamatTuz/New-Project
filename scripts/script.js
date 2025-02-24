@@ -18,8 +18,15 @@ menuButton.addEventListener('click', () => {
 });
 
 window.addEventListener('scroll', () => {
-    if (scrollY > 50) {
-        arrowUp.style.left = '95%'
+
+    if (scrollY > 150) {
+        if (window.innerWidth <= 428) {
+            arrowUp.style.left = '88%';
+            
+        } else {
+            arrowUp.style.left = '93%'
+        }
+        
     } else {
         arrowUp.style.left = '120%'
     }

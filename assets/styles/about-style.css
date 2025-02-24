@@ -1,5 +1,4 @@
 
-
 main {
     display: flex;
     flex-direction: column;
@@ -24,7 +23,7 @@ h1 {
     font-size: 45px;
 }
 
-h2 {
+.title {
     color: #6b9071;
     margin: 15px;
     font-size: 40px;
@@ -46,11 +45,13 @@ h2 {
     margin: 10px;
     font-size: 25px;
     font-weight: 500;
+    line-height: 40px;
 }
 
 .textsContain li {
     font-size: 20px;
     padding: 4px;
+    line-height: 40px;
 }
 
 .fullScreenImage {
