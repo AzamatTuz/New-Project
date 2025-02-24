@@ -48,10 +48,7 @@
     }
 
     .joke {
-        width: 310px;
-        height: 310px;
-        right: 8%;
-        top: 115.5%;
+        display: none;
     }
 
     #arrowUp {
