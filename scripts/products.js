@@ -4,13 +4,19 @@ const categorySection = document.querySelectorAll('.categorySection');
 const cartNumber = document.getElementById('cartNumber');
 let cartGame = JSON.parse(localStorage.getItem('cartGames'));
 let backToPage = 'products.html'
-cartNumber.textContent = cartGame.length
+
 let cart = 0;
 let productPage = [];
 let gamesArr = [];
 let likedGames = [];
 let cartGames = [];
 let i = 0;
+
+if (cartGame) {
+    cartNumber.textContent = cartGame.length
+} else {
+    cartNumber.textContent = 0
+}
 
 async function getData() {
     try {
