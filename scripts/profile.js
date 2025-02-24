@@ -6,7 +6,12 @@ let Loged = localStorage.getItem('isLoged');
 let logOutProfile = document.getElementById('logOutProfile');
 let cartGame = JSON.parse(localStorage.getItem('cartGames'));
 let cartNumber = document.getElementById('cartNumber');
-cartNumber.textContent = cartGame.length
+
+if (cartGame) {
+    cartNumber.textContent = cartGame.length
+} else {
+    cartNumber.textContent = 0
+}
 
 userDisplayName.textContent = userName;
 userDisplayEmail.textContent = userEmail;

@@ -1,3 +1,8 @@
 let cartGame = JSON.parse(localStorage.getItem('cartGames'));
 let cartNumber = document.getElementById('cartNumber');
-cartNumber.textContent = cartGame.length;
+
+if (cartGame) {
+    cartNumber.textContent = cartGame.length;
+} else {
+    cartNumber.textContent = 0;
+}

@@ -64,31 +64,8 @@ registerForm.addEventListener('submit', (e) => { // // ########## Register to lo
             let checkUser = JSON.parse(localStorage.getItem('users'));
 
             if (checkUser) { // // ########## Check user ##########
-                checkUser.forEach(check => {
 
-                    if (check.email == signUserEmail) {
-
-                        signErrorMessage.textContent = 'Такая почта уже существует';
-                        signErrorMessage.style.display = 'block';
-
-                        setTimeout(() => {
-                            signErrorMessage.style.display = 'none';
-                        }, 5000);
-
-                    } else {
-                        users.push({ name: signUserName, email: signUserEmail, password: signUserPassword });
-                        localStorage.setItem('users', JSON.stringify(users));
-
-                        isLoged = true;
-                        localStorage.setItem('isLoged', isLoged);
-
-                        localStorage.setItem('userName', signUserName);
-                        localStorage.setItem('userEmail', signUserEmail);
-
-                        location.href = 'index.html';
-                    };
-
-                });
+                checkUsers(signUserEmail, signUserName, signUserPassword, signErrorMessage);
 
             } else {
                 users.push({ name: signUserName, email: signUserEmail, password: signUserPassword });
@@ -109,6 +86,47 @@ registerForm.addEventListener('submit', (e) => { // // ########## Register to lo
 
 });
 
+function checkUsers(signUserEmail, signUserName, signUserPassword, signErrorMessage) {
+    let checkUser = JSON.parse(localStorage.getItem('users'));
+
+    if (checkUser) {
+        for (let i = 0; i < checkUser.length; i++) {
+
+            if (checkUser[i].email == signUserEmail) {
+
+                signErrorMessage.textContent = 'Такая почта уже существует';
+                signErrorMessage.style.display = 'block';
+
+                setTimeout(() => {
+                    signErrorMessage.style.display = 'none';
+                }, 5000);
+
+                return;
+
+            }
+        }
+
+
+        checkUser.push({ name: signUserName, email: signUserEmail, password: signUserPassword });
+        localStorage.setItem('users', JSON.stringify(checkUser));
+
+        isLoged = true;
+        localStorage.setItem('isLoged', isLoged);
+
+        localStorage.setItem('userName', signUserName);
+        localStorage.setItem('userEmail', signUserEmail);
+
+        console.log(JSON.parse(localStorage.getItem('users')));
+
+        // location.href = 'index.html';
+
+        return;
+    }
+
+
+
+}
+
 loginForm.addEventListener('submit', (e) => { // // ########## Submit to login form ##########
     e.preventDefault();
 
@@ -127,25 +145,43 @@ loginForm.addEventListener('submit', (e) => { // // ########## Submit to login f
     } else {
         let checkUser = JSON.parse(localStorage.getItem('users'));
 
-        checkUser.forEach((user) => { // // ########## Find the user ##########
+        if (checkUser) {
+            checkUser.forEach((user) => { // // ########## Find the user ##########
 
-            if (user.email == logUserEmail && user.name == logUserName && user.password == logUserPassword) {
-                isLoged = true;
-                localStorage.setItem('isLoged', isLoged);
+                if (user.email == logUserEmail && user.name == logUserName) {
+                    if (user.password == logUserPassword) {
+                        isLoged = true;
+                        localStorage.setItem('isLoged', isLoged);
 
-                localStorage.setItem('userName', logUserName);
-                localStorage.setItem('userEmail', logUserEmail);
+                        localStorage.setItem('userName', logUserName);
+                        localStorage.setItem('userEmail', logUserEmail);
 
-                location.href = 'index.html';
-            } else {
-                logErrorMessage.textContent = 'Такого пользователя не существует!!!';
-                logErrorMessage.style.display = 'block';
+                        location.href = 'index.html';
+                    } else {
+                        logErrorMessage.textContent = 'Неверный пороль!!!';
+                        logErrorMessage.style.display = 'block';
 
-                setTimeout(() => {
-                    logErrorMessage.style.display = 'none';
-                }, 5000);
-            }
-        })
+                        setTimeout(() => {
+                            logErrorMessage.style.display = 'none';
+                        }, 5000);
+                    }
+                } else {
+                    logErrorMessage.textContent = 'Такого пользователя не существует!!!';
+                    logErrorMessage.style.display = 'block';
+
+                    setTimeout(() => {
+                        logErrorMessage.style.display = 'none';
+                    }, 5000);
+                }
+            })
+        } else {
+            logErrorMessage.textContent = 'Такого пользователя не существует!!!';
+            logErrorMessage.style.display = 'block';
+
+            setTimeout(() => {
+                logErrorMessage.style.display = 'none';
+            }, 5000);
+        }
     }
 
 })
@@ -221,4 +257,3 @@ function showPassword() {
         })
     }
 }
-
