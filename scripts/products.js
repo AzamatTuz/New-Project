@@ -2,6 +2,7 @@ const cardSection = document.getElementById('cardSection');
 const productsSearch = document.querySelector('.productsSearch');
 const categorySection = document.querySelectorAll('.categorySection');
 const cartNumber = document.getElementById('cartNumber');
+let errorGameMessage = document.getElementById('errorGameMessage');
 let cartGame = JSON.parse(localStorage.getItem('cartGames'));
 let backToPage = 'products.html'
 
@@ -11,7 +12,7 @@ let gamesArr = [];
 let likedGames = [];
 let cartGames = [];
 let i = 0;
-// Change
+
 if (cartGame) {
     cartNumber.textContent = cartGame.length
 } else {
@@ -84,7 +85,7 @@ function displayGames(gamesArr) {
                 cartGames.push(gameD)
                 localStorage.setItem('cartGames', JSON.stringify(cartGames));
             }
-            
+
         });
 
         // ############# ADD TO FAVOURITES FUNCTION #############
@@ -93,9 +94,8 @@ function displayGames(gamesArr) {
             let likeSet = JSON.parse(localStorage.getItem('likedGames'));
 
             if (likeSet) {
-                likeSet.push(game);
-                localStorage.setItem('likedGames', JSON.stringify(likeSet));
-                console.log(!likeSet.includes(game));
+
+                checkLikedGames(game)
 
             } else {
                 likedGames.push(game)
@@ -121,7 +121,7 @@ function displayGames(gamesArr) {
         const categoryGameTitle = document.createElement('h1');
         const categoryTextCard = document.createElement('div');
         const categoryButtons = document.createElement('article');
-                            
+
         categoryButtons.innerHTML = `<button class="readMoreBtn categoryProductBtn">Read More</button>`;
 
         categoryButtons.classList.add('prdctsBtns');
@@ -178,3 +178,22 @@ function displayGames(gamesArr) {
     })
 
 };
+
+function checkLikedGames(game) {
+    let likeSet = JSON.parse(localStorage.getItem('likedGames'));
+
+    for (let i = 0; i < likeSet.length; i++) {
+        if (likeSet[i].title == game.title) {
+            errorGameMessage.textContent = 'Такая игра уже есть в избранных';
+            errorGameMessage.style.top = '20%';
+            setTimeout(() => {
+                errorGameMessage.style.top = '-20%';
+            }, 3000)
+            console.log(game.title);
+            return;
+        }
+    }
+
+    likeSet.push(game);
+    localStorage.setItem('likedGames', JSON.stringify(likeSet));
+}

@@ -84,6 +84,12 @@
         font-size: 30px;
     }
 
+    #errorGameMessage {
+        font-size: 25px;
+        left: 55%;
+        width: 60%;
+    }
+
     .mainProduct {
         margin-left: 70px;
     }

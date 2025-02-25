@@ -146,34 +146,7 @@ loginForm.addEventListener('submit', (e) => { // // ########## Submit to login f
         let checkUser = JSON.parse(localStorage.getItem('users'));
 
         if (checkUser) {
-            checkUser.forEach((user) => { // // ########## Find the user ##########
-
-                if (user.email == logUserEmail && user.name == logUserName) {
-                    if (user.password == logUserPassword) {
-                        isLoged = true;
-                        localStorage.setItem('isLoged', isLoged);
-
-                        localStorage.setItem('userName', logUserName);
-                        localStorage.setItem('userEmail', logUserEmail);
-
-                        location.href = 'index.html';
-                    } else {
-                        logErrorMessage.textContent = 'Неверный пороль!!!';
-                        logErrorMessage.style.display = 'block';
-
-                        setTimeout(() => {
-                            logErrorMessage.style.display = 'none';
-                        }, 5000);
-                    }
-                } else {
-                    logErrorMessage.textContent = 'Такого пользователя не существует!!!';
-                    logErrorMessage.style.display = 'block';
-
-                    setTimeout(() => {
-                        logErrorMessage.style.display = 'none';
-                    }, 5000);
-                }
-            })
+            checkLogUser(checkUser, logUserEmail, logUserName, logUserPassword, logErrorMessage)
         } else {
             logErrorMessage.textContent = 'Такого пользователя не существует!!!';
             logErrorMessage.style.display = 'block';
@@ -256,4 +229,46 @@ function showPassword() {
             isChecked = true;
         })
     }
+}
+
+function checkLogUser(checkUser, logUserEmail, logUserName, logUserPassword, logErrorMessage) {
+    
+    for(let i = 0; i < checkUser.length; i++) {
+        if (checkUser[i].email == logUserEmail && checkUser[i].name == logUserName) {
+            if (checkUser[i].password == logUserPassword) {
+                isLoged = true;
+                localStorage.setItem('isLoged', isLoged);
+    
+                localStorage.setItem('userName', logUserName);
+                localStorage.setItem('userEmail', logUserEmail);
+    
+                console.log('loged');
+                location.href = 'index.html';
+                return;
+                
+            } else {
+                logErrorMessage.textContent = 'Неверный пороль!!!';
+                logErrorMessage.style.display = 'block';
+    
+                setTimeout(() => {
+                    logErrorMessage.style.display = 'none';
+                }, 5000);
+
+                return;
+            }
+        }
+    }
+
+    
+
+    logErrorMessage.textContent = 'Такого пользователя не существует!!!';
+    logErrorMessage.style.display = 'block';
+
+    setTimeout(() => {
+        logErrorMessage.style.display = 'none';
+    }, 5000);
+
+    console.log('tttt');
+    
+    return;
 }

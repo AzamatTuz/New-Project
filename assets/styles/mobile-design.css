@@ -56,6 +56,23 @@
         height: 15px;
     }
 
+    #errorGameMessage {
+        font-size: 15px;
+        left: 56%;
+    }
+
+    .avatar {
+        width: 40%;
+    }
+
+    .profileMain {
+        margin-top: 130px;
+    }
+
+    .profileBox {
+        width: 250px;
+    }
+
     .videoPart video {
         width: 250px;
 

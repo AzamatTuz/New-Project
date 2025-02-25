@@ -4,7 +4,13 @@ let cartGame = JSON.parse(localStorage.getItem('cartGames'));
 let cartNumber = document.getElementById('cartNumber');
 let backToPage = 'liked.html'
 let productPage = [];
-cartNumber.textContent = cartGame.length
+
+
+if (cartGame) {
+    cartNumber.textContent = cartGame.length
+} else {
+    cartNumber.textContent = 0;
+}
 
 let i = 0;
 

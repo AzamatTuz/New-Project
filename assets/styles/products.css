@@ -17,6 +17,7 @@ main {
     gap: 30px;
 }
 
+
 .gameCard {
     display: flex;
     flex-direction: column;
@@ -31,8 +32,6 @@ main {
     overflow: hidden;
     padding: 4px;
     animation: glowingBorder 3s infinite;
-    scroll-snap-align: end;
-    scroll-snap-stop: always;
 }
 
 .gameCard img {
@@ -172,7 +171,6 @@ main {
     height: 155vh;
     overflow-y: scroll;
     padding: 10px;
-    scroll-snap-type: y mandatory;
 }
 
 .scrollPart::-webkit-scrollbar {
@@ -192,6 +190,38 @@ main {
     border: 3px solid #6b9071;
     outline: 4px solid #0f2a1d;
     border-radius: 10px;
+}
+
+#errorGameMessage {
+    position: fixed;
+    top: -20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffaa00;
+    background: #0f2a1d;
+    width: 50%;
+    font-weight: 700;
+    padding: 20px;
+    font-size: 35px;
+    text-align: center;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1;
+    transition: 1s all;
+}
+
+.errorGameMessage{
+    animation: secondsAnimated 3s linear;
+}
+
+#errorGameMessage::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background: #ffaa00;
+    left: 0;
+    bottom: 0;
 }
 
 @keyframes glowingBorder {
