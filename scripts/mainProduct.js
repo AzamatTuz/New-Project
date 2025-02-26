@@ -1,6 +1,7 @@
 let gamePage = JSON.parse(localStorage.getItem('gamePage'));
 let arrOfNum = gamePage.length - 1;
 let productImage = document.querySelector('.productImage');
+let productSecImage = document.querySelector('.productSecImage');
 let productName = document.querySelector('.productName');
 let productPrice = document.querySelector('.productPrice');
 let productMinString = document.querySelector('.productMinString');
@@ -25,6 +26,7 @@ productName.textContent = gamePage[arrOfNum].title;
 productPrice.textContent = gamePage[arrOfNum].price + ' KZT';
 productMinString.textContent = gamePage[arrOfNum].minString;
 productString.textContent = gamePage[arrOfNum].string;
+productSecImage.src = gamePage[arrOfNum].secondImage
 
 backToPage.addEventListener('click', () => {
     location.href = localStorage.getItem('backToPage')

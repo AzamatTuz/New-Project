@@ -130,3 +130,7 @@
     bottom: 0;
     box-shadow: 0 0 10px #6b9071;
 }
+
+.productSecImage {
+    width: 100%;
+}

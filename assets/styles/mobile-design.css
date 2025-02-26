@@ -47,6 +47,18 @@
         grid-template-columns: 1fr;
     }
 
+    .notification {
+        right: -70%;
+    }
+
+    #notificationText {
+        font-size: 15px;
+    }
+
+    .notification-after {
+        right: 2%;
+    }
+
     .joke {
         display: none;
     }
@@ -197,7 +209,7 @@
         margin-left: 50px;
     }
 
-    .productWrapper img {
+    .productWrapper .defaultProductBox img {
         width: 250px;
     }
 

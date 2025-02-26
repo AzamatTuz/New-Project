@@ -102,12 +102,24 @@
         font-size: 30px;
     }
 
-    .productWrapper img {
+    .productWrapper .defaultProductBox img {
         width: 50%;
+    }
+
+    .productSecImage {
+        width: 100%;
     }
 
     .profileMain {
         margin-left: 50px;
+    }
+
+    .notification {
+        right: -50%;
+    }
+
+    .notification-after {
+        right: 2%;
     }
 
     footer h1 {
