@@ -10,6 +10,8 @@ let buyButton = document.querySelector('#buyButton');
 let cartGame = JSON.parse(localStorage.getItem('cartGames'));
 let cartNumber = document.getElementById('cartNumber');
 let backToPage = document.getElementById('backToPage');
+let errorGameMessage = document.getElementById('errorGameMessage');
+let isLog = localStorage.getItem('isLoged');
 
 if (cartGame) {
     cartNumber.textContent = cartGame.length
@@ -24,11 +26,24 @@ productPrice.textContent = gamePage[arrOfNum].price + ' KZT';
 productMinString.textContent = gamePage[arrOfNum].minString;
 productString.textContent = gamePage[arrOfNum].string;
 
-buyButton.addEventListener('click', () => {
-    localStorage.setItem('orderName', gamePage[arrOfNum].title);
-    localStorage.setItem('orderPrice', gamePage[arrOfNum].price + ' KZT');
-});
-
 backToPage.addEventListener('click', () => {
     location.href = localStorage.getItem('backToPage')
-})
+});
+
+buyButton.addEventListener('click', () => {
+
+
+    if (isLog == 'true') {
+        localStorage.setItem('orderName', gamePage[arrOfNum].title);
+        localStorage.setItem('orderPrice', gamePage[arrOfNum].price + ' KZT');
+        window.open('takeOrder.html')
+    } else {
+        errorGameMessage.textContent = 'С начало авторизуйтесь';
+        errorGameMessage.style.top = '20%';
+        setTimeout(() => {
+            errorGameMessage.style.top = '-20%';
+        }, 3000)
+    }
+
+
+});

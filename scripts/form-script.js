@@ -268,7 +268,6 @@ function checkLogUser(checkUser, logUserEmail, logUserName, logUserPassword, log
         logErrorMessage.style.display = 'none';
     }, 5000);
 
-    console.log('tttt');
     
     return;
 }

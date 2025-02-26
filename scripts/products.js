@@ -4,7 +4,10 @@ const categorySection = document.querySelectorAll('.categorySection');
 const cartNumber = document.getElementById('cartNumber');
 let errorGameMessage = document.getElementById('errorGameMessage');
 let cartGame = JSON.parse(localStorage.getItem('cartGames'));
-let backToPage = 'products.html'
+let backToPage = 'products.html';
+let notification = document.querySelector('.notification');
+let notificationText = document.getElementById('notificationText');
+let notificationLine = document.querySelector('.notificationLine');
 
 let cart = 0;
 let productPage = [];
@@ -166,7 +169,7 @@ function displayGames(gamesArr) {
     productsSearch.addEventListener('input', () => {
         gameCards.forEach((card) => {
             const text = card.querySelector('h1');
-            if (!text.textContent.toLowerCase().includes(productsSearch.value.toLowerCase())) {
+            if (!text.textContent.toLowerCase().trim().includes(productsSearch.value.toLowerCase().trim())) {
                 card.style.display = 'none';
             } else {
                 card.style.display = 'flex';
@@ -193,6 +196,14 @@ function checkLikedGames(game) {
 
     likeSet.push(game);
     localStorage.setItem('likedGames', JSON.stringify(likeSet));
+    notification.classList.toggle('notification-after');
+    notificationLine.classList.toggle('lineAnimation');
+    notificationText.textContent = 'Товар добавлен в избранных';
+
+    setTimeout(() => {
+        notification.classList.toggle('notification-after');
+        notificationLine.classList.toggle('lineAnimation');
+    }, 3000)
 }
 
 function checkCartGames(game) {
@@ -213,4 +224,12 @@ function checkCartGames(game) {
     cartSet.push(game);
     localStorage.setItem('cartGames', JSON.stringify(cartSet));
     cartNumber.textContent = cartSet.length
+    notification.classList.toggle('notification-after');
+    notificationLine.classList.toggle('lineAnimation');
+    notificationText.textContent = 'Товар добавлен в корзину';
+
+    setTimeout(() => {
+        notification.classList.toggle('notification-after');
+        notificationLine.classList.toggle('lineAnimation');
+    }, 3000)
 }
