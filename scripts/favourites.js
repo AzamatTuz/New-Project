@@ -55,7 +55,7 @@ function displayCard() {
             gamesArr.splice(gamesArr.indexOf(game), 1);
 
             localStorage.setItem('likedGames', JSON.stringify(gamesArr));
-            console.log(gamesArr);
+            
             cardSection.removeChild(card);
 
             noText();

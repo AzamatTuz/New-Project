@@ -72,17 +72,14 @@ function displayGames(gamesArr) {
         // ############# ADD TO CART FUNCTION #############
 
         buttons.querySelector('.productCartBtn').addEventListener('click', () => {
-            let gameD = { title: game.title, price: game.price, image: game.image };
+            
             let checkGame = JSON.parse(localStorage.getItem('cartGames'));
-            console.log(gameD);
+            
 
             if (checkGame) {
-                checkGame.push(gameD);
-                localStorage.setItem('cartGames', JSON.stringify(checkGame));
-                console.log(!checkGame.includes(gameD));
-                cartNumber.textContent = checkGame.length;
+                checkCartGames(game)
             } else {
-                cartGames.push(gameD)
+                cartGames.push(game)
                 localStorage.setItem('cartGames', JSON.stringify(cartGames));
             }
 
@@ -108,7 +105,7 @@ function displayGames(gamesArr) {
 
         buttons.querySelector('.readMoreBtn').addEventListener('click', () => {
             productPage.push(game);
-            console.log(game);
+            
             location.href = 'main-products.html'
             localStorage.setItem('gamePage', JSON.stringify(productPage));
             localStorage.setItem('backToPage', backToPage);
@@ -155,7 +152,7 @@ function displayGames(gamesArr) {
 
         categoryButtons.querySelector('.readMoreBtn').addEventListener('click', () => {
             productPage.push(game);
-            console.log(game);
+            
             location.href = 'main-products.html'
             localStorage.setItem('gamePage', JSON.stringify(productPage));
             localStorage.setItem('backToPage', backToPage);
@@ -184,16 +181,36 @@ function checkLikedGames(game) {
 
     for (let i = 0; i < likeSet.length; i++) {
         if (likeSet[i].title == game.title) {
-            errorGameMessage.textContent = 'Такая игра уже есть в избранных';
+            errorGameMessage.textContent = 'Этот игра уже находится в избранных';   
             errorGameMessage.style.top = '20%';
             setTimeout(() => {
                 errorGameMessage.style.top = '-20%';
             }, 3000)
-            console.log(game.title);
+            
             return;
         }
     }
 
     likeSet.push(game);
     localStorage.setItem('likedGames', JSON.stringify(likeSet));
+}
+
+function checkCartGames(game) {
+    let cartSet = JSON.parse(localStorage.getItem('cartGames'));
+
+    for (let i = 0; i < cartSet.length; i++) {
+        if (cartSet[i].title == game.title) {
+            errorGameMessage.textContent = 'Этот игра уже находится в корзине';
+            errorGameMessage.style.top = '20%';
+            setTimeout(() => {
+                errorGameMessage.style.top = '-20%';
+            }, 3000)
+
+            return;
+        }
+    }
+    
+    cartSet.push(game);
+    localStorage.setItem('cartGames', JSON.stringify(cartSet));
+    cartNumber.textContent = cartSet.length
 }

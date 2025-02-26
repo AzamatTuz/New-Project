@@ -4,9 +4,9 @@ let totalPrice = document.getElementById('totalPrice');
 let buyButton = document.getElementById('buyButton');
 let cartNumber = document.getElementById('cartNumber');
 let cartGame = JSON.parse(localStorage.getItem('cartGames'));
+let errorGameMessage = document.getElementById('errorGameMessage');
 let cart = cartGame;
-console.log(cart);
-
+let isLog = localStorage.getItem('isLoged');
 
 cartNumber.textContent = cartGame.length
 let total = 0;
@@ -46,7 +46,7 @@ function displayCard() {
             total -= game.price;
 
             localStorage.setItem('cartGames', JSON.stringify(gamesArr));
-            console.log(gamesArr);
+
             cardSection.removeChild(card);
 
             cartNumber.textContent = gamesArr.length
@@ -83,9 +83,19 @@ function calcTotalPrice() {
 
 buyButton.addEventListener('click', () => {
     if (cart.length > 0) {
-        localStorage.setItem('orderName', `${gamesArr.length} игр`);
-        localStorage.setItem('orderPrice', total + ' KZT');
-        window.open('takeOrder.html')
+
+        if (isLog == 'true') {
+            localStorage.setItem('orderName', `${gamesArr.length} игр`);
+            localStorage.setItem('orderPrice', total + ' KZT');
+            window.open('takeOrder.html')
+        } else {
+            errorGameMessage.textContent = 'С начало авторизуйтесь';
+            errorGameMessage.style.top = '20%';
+            setTimeout(() => {
+                errorGameMessage.style.top = '-20%';
+            }, 3000)
+        }
+
     }
 });
 

@@ -198,7 +198,8 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     color: #ffaa00;
-    background: #0f2a1d;
+    background: #ffffff38;
+    backdrop-filter: blur(5px);
     width: 50%;
     font-weight: 700;
     padding: 20px;
@@ -208,6 +209,7 @@ main {
     overflow: hidden;
     z-index: 1;
     transition: 1s all;
+    text-shadow: 0 0 10px #ffaa00;
 }
 
 .errorGameMessage{
@@ -222,6 +224,7 @@ main {
     background: #ffaa00;
     left: 0;
     bottom: 0;
+    box-shadow: 0 0 10px #ffaa00;
 }
 
 @keyframes glowingBorder {
